@@ -1,8 +1,8 @@
-#####################################################################################################################
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\INFO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-#####################################################################################################################
-Welcome to the beta 1.1 version of the DDR 2014 (1280x720) theme for Stepmania 5. We have tried to make it as 
-accurate as possible using recreated graphics, sounds and coding. 
+#############################################################################################
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\INFO\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#############################################################################################
+Welcome to the beta 1.1 version of the DDR 2014 (1280x720) theme for Stepmania 5. We have 
+tried to make it as accurate as possible using recreated graphics, sounds and coding. 
 
 Coming soon:
 - eAmuse(ish) system. I have the ideas, just not the coding 
@@ -18,9 +18,9 @@ There's nothing wrong with these but we plan to redo the graphics.
 
 Anywho, Enjoy and feel free to modify.	
 
-#####################################################################################################################
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\CODES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-#####################################################################################################################
+############################################################################################
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\CODES\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+############################################################################################
 ScreenSelectMusic:
 	To open/use Information Panes - *On the dancepad* [Left+Up, Right+Up, Left+Down]
 	To close Information Panes - *On the dancepad* [Right+Down]
@@ -31,9 +31,9 @@ ScreenSelectMusic:
 ScreenEvaluation:
 	To use Information Panes - [Left, Up, Right or Down on the dance pad]
 
-#####################################################################################################################
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\SUGGESTED SETTINGS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-#####################################################################################################################
+############################################################################################
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\SUGGESTED SETTINGS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+############################################################################################
 Codes:
 For more efficient use of these codes make sure to have 
       Menu and Gameplay buttons mapped to different keys.
@@ -48,8 +48,9 @@ For more efficient use of these codes make sure to have
 			 	Right = [:]     MenuRight = [KP6]
 
 Groups:
-For the group title and colours to work some renaming of folders is necessary (this is to make a logical order of 
-DDR mixes). The following are the original and renamed song packs, all from www.Zenius-i-vanisher.com:
+For the group title and colours to work some renaming of folders is necessary 
+(this is to make a logical order of DDR mixes). The following are the original and 
+renamed song packs, all from www.Zenius-i-vanisher.com:
 - DanceDanceRevolution 1stMIX
 - DanceDanceRevolution 2ndMIX
 - DanceDanceRevolution 3rdMIX
@@ -66,9 +67,9 @@ DDR mixes). The following are the original and renamed song packs, all from www.
 - DDR 2013
 - DDR 2014
 
-#####################################################################################################################
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\CREDITS AND ACKNOWLEDGEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-#####################################################################################################################
+###########################################################################################
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\CREDITS AND ACKNOWLEDGEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+###########################################################################################
 G2008 & strider: Authors of DDR2013 theme for Stepmania 5. Gene
 asked me to do this theme.
 
