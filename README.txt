@@ -77,8 +77,4 @@ Pkwp: In charge of graphics and arcade accuracy.
 
 dbk2: Helped immensely with errors and explained a lot of things.
 
-<<<<<<< HEAD
 Everyone in the forums who helped by sending in audio/graphics and offered advice.
-=======
-Everyone in the forums who helped by sending in audio/graphics and offered advice.
->>>>>>> origin/master
