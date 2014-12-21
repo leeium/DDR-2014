@@ -93,8 +93,10 @@ return Def.ActorFrame{
 		InitCommand=cmd(zoom,1.8;x,SCREEN_RIGHT-130;y,SCREEN_CENTER_Y-230;diffuseshift;effectcolor1,1,1,1,1;effectcolor2,0.9,0.9,0.9,1;effectperiod,0.33);
 		Condition = GAMESTATE:GetPremium() == "Premium_2PlayersFor1Credit";
 	};
-	LoadActor("Version")..{
-		InitCommand=cmd(horizalign,left;x,SCREEN_LEFT+10;y,SCREEN_TOP+22);
-	};
+Def.BitmapText{
+Font="Common normal",
+Text=themeInfo["Name"] .. " version " .. themeInfo["Version"] .. " by " .. themeInfo["Author"] ,
+InitCommand=cmd(horizalign,left; xy,10,20; shadowlength,1; zoom, 0.85)
+};
 
 };

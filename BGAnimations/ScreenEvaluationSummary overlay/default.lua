@@ -1,40 +1,6 @@
 -- Base from CyberiaStyle 7 by gl_yukt
 
 local st = GAMESTATE:GetCurrentStyle():GetStepsType();
-
-function Actor:zoom_to_banner_Summary()
-	-- スクエアバナー用
-	if self:GetWidth() == self:GetHeight() then
-	--	self:zoomto(128,128);
-		self:zoomto(58,58);
-	-- マリオ用		
-	elseif (self:GetWidth() * 2) / 5 == self:GetHeight() then
-		self:zoomto(58,32);
-	-- ホッテストパーティー1・2 フルフルパーティー　Winx-Club Disney-Grooves用		
-	elseif (self:GetWidth() * 55) / 113 == self:GetHeight() then
-		self:zoomto(58,32);
-	else
-	-- その他、通常DDR	
-		self:zoomto(58,32);
-	end
-end
-
-function Actor:zoom_to_banner_Summary_line()
-	-- スクエアバナー用
-	if self:GetWidth() == self:GetHeight() then
-		self:zoomto(58,58);
-	-- マリオ用		
-	elseif (self:GetWidth() * 2) / 5 == self:GetHeight() then
-		self:zoomto(54,22.8);
-	-- ホッテストパーティー1・2 フルフルパーティー　Winx-Club Disney-Grooves用		
-	elseif (self:GetWidth() * 55) / 113 == self:GetHeight() then
-		self:zoomto(49,25);
-	else
-	-- その他、通常DDR	
-		self:zoomto(55,19);
-	end
-end	
-
 local mStages = STATSMAN:GetStagesPlayed();
 local i = 0;
 
@@ -56,28 +22,20 @@ t[#t+1] = Def.ActorFrame {
 		self:x(SCREEN_CENTER_X);
 		self:y(SCREEN_CENTER_Y);
 		if mStages == 1 then
---			self:addy(-50);
 			self:addy(0);
 		elseif mStages == 2 then
---			self:addy(-75);
 			self:addy(0);
 		elseif mStages == 3 then
---			self:addy(-100);
 			self:addy(0);
 		elseif mStages == 4 then
---			self:addy(-125);
 			self:addy(0);
 		elseif mStages == 5 then
---			self:addy(-150);
-			self:addy(0);
+			self:addy(5);
 		elseif mStages == 6 then
---			self:addy(-162.5);
-			self:addy(0);
+			self:addy(5);
 		elseif mStages == 7 then
---			self:addy(-162.5);
-			self:addy(0);
+			self:addy(5);
 		else
---			self:addy(-50);
 			self:addy(0);
 		end;
 	end;
@@ -90,20 +48,28 @@ t[#t+1] = Def.ActorFrame {
 			self:linear(0.25);
 			if mStages == 1 then
 				self:zoomtoheight(256);
+				self:zoomtowidth(SCREEN_WIDTH);
 			elseif mStages == 2 then
 				self:zoomtoheight(256);
+				self:zoomtowidth(SCREEN_WIDTH);
 			elseif mStages == 3 then
 				self:zoomtoheight(256);
+				self:zoomtowidth(SCREEN_WIDTH);
 			elseif mStages == 4 then
-				self:zoomtoheight(500);
+				self:zoomtoheight(400);
+				self:zoomtowidth(SCREEN_WIDTH);
 			elseif mStages == 5 then
-				self:zoomtoheight(500);
+				self:zoomtoheight(400);
+				self:zoomtowidth(SCREEN_WIDTH);
 			elseif mStages == 6 then
-				self:zoomtoheight(500);
+				self:zoomtoheight(400);
+				self:zoomtowidth(SCREEN_WIDTH);
 			elseif mStages == 7 then
-				self:zoomtoheight(500);
+				self:zoomtoheight(400);
+				self:zoomtowidth(SCREEN_WIDTH);
 			else
-				self:zoomtoheight(500);
+				self:zoomtoheight(400);
+				self:zoomtowidth(SCREEN_WIDTH);
 			end;
 		end;
 		OffCommand=cmd(sleep,0.25;linear,0.25;zoomy,0);
@@ -140,20 +106,19 @@ for i = 1, mStages do
 		};
 		
 		-- banner line
-		Def.Sprite {
+		Def.Quad {
 			BeginCommand=function(self)
 				local sssong = ssStats:GetPlayedSongs()[1];
-				self:x(-179);
-				self:y(10);
-				self:Load(GetJacketBanner(sssong))
-				self:zoom_to_banner_Summary_line();
+				self:x(-170);
+				self:y(11);
+				self:zoomto(50,50);
 				self:diffuse(color("#000000"));
 			end;
 			OnCommand=function(self) 
 				self:zoomy(0);
 				self:sleep(0.25+(i-mStages)*-0.1);
 				self:linear(0.2); 
-				self:zoom_to_banner_Summary_line();
+				self:zoomto(50,50);
 			end;
 			OffCommand=cmd(linear,0.25;zoomy,0);						
 		};
@@ -162,18 +127,36 @@ for i = 1, mStages do
 		Def.Banner {
 			BeginCommand=function(self)
 				local sssong = ssStats:GetPlayedSongs()[1];
-				self:x(-180);
-				self:y(10);
-				self:Load(GetJacketBanner(sssong))
-				self:zoomto(58,58);
+				self:x(-170);
+				self:y(11);
+				if sssong:HasJacket() then
+					self:LoadBackground(sssong:GetJacketPath());
+					self:zoomto(48,48);
+				elseif sssong:HasBackground() then
+					self:LoadFromSongBackground(sssong);
+					self:zoomto(48,48);
+				else
+					self:Load(THEME:GetPathG("","Common fallback jacket"));
+					self:zoomto(48,48);
+				end;
 			end;
 			OnCommand=function(self) 
-				self:Load(GetJacketBanner(sssong))
+				local sssong = ssStats:GetPlayedSongs()[1];
+				if sssong:HasJacket() then
+					self:LoadBackground(sssong:GetJacketPath());
+					self:zoomto(48,48);
+				elseif sssong:HasBackground() then
+					self:LoadFromSongBackground(sssong);
+					self:zoomto(48,48);
+				else
+					self:Load(THEME:GetPathG("","Common fallback jacket"));
+					self:zoomto(48,48);
+				end;
 				self:zoomy(0);
 				self:sleep(0.25+(i-mStages)*-0.1);
 				self:linear(0.2);
 				self:zoomy(1);
-				self:zoomto(58,58);
+				self:zoomto(48,48);
 			end;
 			OffCommand=cmd(linear,0.25;zoomy,0);						
 		};

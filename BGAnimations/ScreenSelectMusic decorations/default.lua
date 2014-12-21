@@ -526,48 +526,11 @@ t[#t+1] = LoadActor("radarP2")..{
 		end;
 	end;
 };
-t[#t+1] = LoadActor("difficultyP1")..{
-		InitCommand=cmd(diffusealpha,0;draworder,3;addy,-15-4);
-		CurrentSongChangedMessageCommand=function(self)
-		local song = GAMESTATE:GetCurrentSong()
-			if song then
-				self:zoom(1);
-			else
-				self:zoom(1);
-			end;
-		end;
-		CodeMessageCommand=function(self,params)
-		local pn = params.PlayerNumber
-		if pn==PLAYER_1 then
-			if params.Name=="OpenPanes1"then
-				self:diffusealpha(1);
-			else
-				self:diffusealpha(0);
-			end;
-		end;
-	end;
-};
-t[#t+1] = LoadActor("difficultyP2")..{
-		InitCommand=cmd(diffusealpha,0;draworder,3;addy,-15-4);
-		CurrentSongChangedMessageCommand=function(self)
-		local song = GAMESTATE:GetCurrentSong()
-			if song then
-				self:zoom(1);
-			else
-				self:zoom(1);
-			end;
-		end;
-		CodeMessageCommand=function(self,params)
-		local pn = params.PlayerNumber
-		if pn==PLAYER_2 then
-			if params.Name=="OpenPanes1"then
-				self:diffusealpha(1);
-			else
-				self:diffusealpha(0);
-			end;
-		end;
-	end;
-};
+for pn in ivalues( GAMESTATE:GetHumanPlayers() ) do
+t[#t+1] = LoadActor("Difficulty.lua", pn)..{
+InitCommand=cmd(diffusealpha,0; draworder,3; addy,-19),
+}
+end
 end;
 t[#t+1] = LoadActor("scoresP1")..{
 		InitCommand=cmd(diffusealpha,0;draworder,3;addy,-30;addx,5);
