@@ -172,6 +172,8 @@ Def.Sprite {
 				self:Load(THEME:GetPathG("group name series","SDVX"));
 				elseif group == "FutureTomTom" then
 				self:Load(THEME:GetPathG("group name series","FutureTomTom"));
+				elseif group == "DDR" then
+				self:Load(THEME:GetPathG("group name","DDR"));
 				else
 					self:diffusealpha(0);
 				end;
