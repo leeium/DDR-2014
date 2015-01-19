@@ -75,7 +75,7 @@ local t = Def.ActorFrame{
 		end;
 	};
 	-- 8 Battery empty red
-	Def.Quad{
+--[[	Def.Quad{
 		InitCommand=cmd(horizalign,right;x,244;diffusetopedge,color("#5d1115");diffusebottomedge,color("#f50d0d"));
 		BeginCommand=function(self,params)
 			local screen = SCREENMAN:GetTopScreen();
@@ -125,14 +125,14 @@ local t = Def.ActorFrame{
 			self:sleep(0.33);
 			self:zoomto(454-(params.LivesLeft*56.75),26);
 		end;
-	};
+	};--]]
 	-- 4 Battery empty red
 	Def.Quad{
 		InitCommand=cmd(horizalign,right;x,244;diffusetopedge,color("#5d1115");diffusebottomedge,color("#f50d0d"));
 		BeginCommand=function(self,params)
 			local screen = SCREENMAN:GetTopScreen();
 			local glifemeter = screen:GetLifeMeter(player);
-			if glifemeter:GetTotalLives() <= 4 then
+			if glifemeter:GetTotalLives() <= 5 then
 				self:visible(true)
 			else
 				self:visible(false)
@@ -144,7 +144,7 @@ local t = Def.ActorFrame{
 			self:linear(0);
 			self:diffusetopedge(color("#5d1115"));
 			self:diffusebottomedge(color("#f50d0d"));
-			self:zoomto(454-(params.LivesLeft*113.5),26);
+			self:zoomto(454-((params.LivesLeft-1)*113.5),26);
 			self:linear(0.33);
 			self:diffusetopedge(color("#707171"));
 			self:diffusebottomedge(color("#404040"));
@@ -156,9 +156,9 @@ local t = Def.ActorFrame{
 		BeginCommand=function(self,params)
 			local screen = SCREENMAN:GetTopScreen();
 			local glifemeter = screen:GetLifeMeter(player);
-			if glifemeter:GetTotalLives() <= 4 then
+			if glifemeter:GetTotalLives() <= 5 then
 				self:visible(true)
-				if glifemeter:GetTotalLives() == 4 then
+				if glifemeter:GetTotalLives() == 4 or glifemeter:GetTotalLives() == 5 then
 					self:zoomto(0,26);
 				elseif glifemeter:GetTotalLives() == 3 then
 					self:zoomto(113.5,26);
@@ -175,7 +175,7 @@ local t = Def.ActorFrame{
 			if params.Player ~= player then return end;
 			self:finishtweening();
 			self:sleep(0.33);
-			self:zoomto(454-(params.LivesLeft*113.5),26);
+			self:zoomto(454-((params.LivesLeft-1)*113.5),26);
 		end;
 	};
 	
@@ -189,12 +189,12 @@ local t = Def.ActorFrame{
 			
 			self:x(10);
 			if GAMESTATE:IsExtraStage() or GAMESTATE:IsExtraStage2() then
-				if glifemeter:GetTotalLives() >= 5 then
+				if glifemeter:GetTotalLives() > 5 then
 					self:Load(THEME:GetPathG("LifeMeterBattery","lives/_8frame_2013"));
 				else
 					self:Load(THEME:GetPathG("LifeMeterBattery","lives/_4frame_2013"));
 				end
-			elseif glifemeter:GetTotalLives() >= 5 then
+			elseif glifemeter:GetTotalLives() > 5 then
 				self:Load(THEME:GetPathG("LifeMeterBattery","lives/_8frame_2013"));
 			else
 				--[[

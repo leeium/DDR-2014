@@ -10,10 +10,16 @@ local pss = STATSMAN:GetCurStageStats():GetPlayerStageStats(pn);
 local st = GAMESTATE:GetCurrentStyle():GetStepsType();
 
 local function GetPosition(pn)
-	if Center1Player and NumPlayers == 1 and NumSides == 1 then return SCREEN_CENTER_X; end;
+--[[	if Center1Player and NumPlayers == 1 and NumSides == 1 then return SCREEN_CENTER_X; end;
+	local strPlayer = (NumPlayers == 1) and "OnePlayer" or "TwoPlayers";
+	local strSide = (NumSides == 1) and "OneSide" or "TwoSides";
+	return THEME:GetMetric("ScreenGameplay","Player".. ToEnumShortString(pn) .. strPlayer .. strSide .."X");--]]
+	if st == "StepsType_Dance_Double" or st == "StepsType_Dance_Solo" or Center1Player then return SCREEN_WIDTH/2;
+	else 
 	local strPlayer = (NumPlayers == 1) and "OnePlayer" or "TwoPlayers";
 	local strSide = (NumSides == 1) and "OneSide" or "TwoSides";
 	return THEME:GetMetric("ScreenGameplay","Player".. ToEnumShortString(pn) .. strPlayer .. strSide .."X");
+end;
 end;
 
 local function GradationWidth()
