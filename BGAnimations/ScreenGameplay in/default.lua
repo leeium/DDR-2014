@@ -23,7 +23,7 @@ t[#t+1] = LoadActor(THEME:GetPathB("","StageinBG")) .. {
 		OnCommand=cmd(sleep,0.2;linear,0.25;diffusealpha,0);
 	};
 t[#t+1] = Def.Quad{
-	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;diffuse,color("#000000");zoomto,326,326;diffusealpha,1);
+	InitCommand=cmd(x,SCREEN_CENTER_X;y,SCREEN_CENTER_Y;diffuse,color("#000000");zoomto,464,464;diffusealpha,1);
 	OnCommand=cmd(zoom,1;linear,0.1;zoomy,0);
 	};
 --Jacket--
@@ -37,13 +37,13 @@ t[#t+1] = Def.ActorFrame {
 				if song then
 					if song:HasJacket() then
 						self:LoadBackground(song:GetJacketPath());
-						self:setsize(320,320);
+						self:setsize(460,460);
 					elseif song:HasBackground() then
 						self:LoadFromSongBackground(GAMESTATE:GetCurrentSong());
-						self:setsize(320,320);
+						self:setsize(460,460);
 					else
 						self:Load(THEME:GetPathG("","Common fallback jacket"));
-						self:setsize(320,320);
+						self:setsize(460,460);
 					end;
 				else
 					self:diffusealpha(0);	
